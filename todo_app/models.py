@@ -28,8 +28,8 @@ class ToDoList(models.Model):
 
     # Get the URL of the list
     # Using 'reverse' to avoid hard-coding the URL
-    def get_absolute_url(self):
-        return reverse("list", args=[self.id])
+#    def get_absolute_url(self):
+#        return reverse("list", args=[self.id])
     
     # String representation of the model
     # By default, return the title of the list
@@ -75,10 +75,10 @@ class ToDoItem(models.Model):
     # 'on_delete': If the list is deleted, all tasks inside it are also deleted
     todo_list = models.ForeignKey(ToDoList, on_delete=models.CASCADE)
 
-    def get_aboslute_url(self):
-        return reverse(
-            "item-update", args=[str(self.todo_list.id), str(self.id)]
-        )
+#    def get_aboslute_url(self):
+#        return reverse(
+#            "item-update", args=[str(self.todo_list.id), str(self.id)]
+#        )
     
     # Set the string representation of the model
     # By default, return the title of the task and the due date

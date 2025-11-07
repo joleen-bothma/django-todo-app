@@ -2,13 +2,19 @@
 
 {% block content %}
 
+<a href="{% url 'task-create' %}">Create new task</a>
+
 <table>
     <tr>
         <th>Item</th>
+        <th></th>
+        <th>Due Date</th>
     </tr>
-    {% for task in object_list %}
+    {% for task in tasks %}
     <tr>
-        <td>{{tasks.title}}</td>
+        <td>{{task.title}}</td>
+        <td><a href="{% url 'task' task.id %}">View</a></td>
+        <td>{{task.due_date}}</td>
     </tr>
     {% empty %}
     <h3>No items in list</h3>
